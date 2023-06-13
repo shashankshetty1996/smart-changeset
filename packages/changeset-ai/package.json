@@ -1,8 +1,7 @@
 {
-  "name": "@shaky/changeset",
+  "name": "@shaky/changeset-ai",
   "version": "0.0.0",
   "private": true,
-  "description": "A tool for managing changesets",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -13,13 +12,18 @@
     "build": "tsc"
   },
   "dependencies": {
+    "chalk": "^4.1.2",
+    "dotenv": "^8.2.0",
+    "openai-api": "^1.3.1",
     "ts-node": "10.9.1",
     "typescript": "^4.5.2"
   },
   "keywords": [
     "changeset",
     "monorepo",
-    "release"
+    "release",
+    "chatgpt",
+    "semver"
   ],
   "author": "Shashank Shetty",
   "license": "MIT"
