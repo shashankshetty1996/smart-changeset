@@ -23,14 +23,19 @@ if (source && source !== "template") {
   process.exit(0);
 }
 
-const data = fs.readFileSync(messageFile);
-const commitMessage = data.toString();
+let messagePrefix = "NO-ISSUE";
 
 if (branchMatch) {
-  const issueKey = branchMatch[branchMatch.length - 1];
-  fs.writeFileSync(messageFile, `${issueKey} ${commitMessage}`);
-} else {
-  fs.writeFileSync(messageFile, `NO-ISSUE ${commitMessage}`);
+  // issueKey is the last match in the regex.
+  messagePrefix = branchMatch[branchMatch.length - 1];
 }
+
+const data = fs.readFileSync(messageFile);
+const commitMessage = data.toString();
+const messageMatch = issueKeyRegex.test(commitMessage);
+const message = messageMatch
+  ? commitMessage
+  : `${messagePrefix} | ${commitMessage}`;
+fs.writeFileSync(messageFile, message);
 
 process.exit(0);
