@@ -7,10 +7,10 @@ const path = require("path");
 const project = path.join(__dirname, "../tsconfig.json");
 const dev = fs.existsSync(project);
 
-let cliPath = "dist/cli/api-extractor.cli.js";
+let cliPath = "dist/src/cli/api-extractor.cli.js";
 if (dev) {
   require("ts-node").register({ project });
-  cliPath = "cli/api-extractor.cli.ts";
+  cliPath = "src/cli/api-extractor.cli.ts";
 }
 
 require(path.join("..", cliPath))
