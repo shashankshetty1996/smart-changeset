@@ -1,8 +1,8 @@
 {
-  "name": "@shaky/changeset",
+  "name": "@shaky/helper",
   "version": "0.0.0",
   "private": true,
-  "description": "A tool for managing changesets",
+  "description": "A helper package",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
